@@ -1,7 +1,7 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-
+import logo from './logo.svg';
+import Stuff from './stuff';
 function App() {
   return (
     <div className="App">
@@ -17,6 +17,7 @@ function App() {
           rel="noopener noreferrer"
         >
           Learn React
+          <Stuff></Stuff>
         </a>
       </header>
     </div>
