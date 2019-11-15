@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
+import '../css/Commits.css';
 import { getCommits } from '../store';
 import Commit from './Commit';
 const Commits = ({ commits, getCommits }) => {
@@ -8,7 +9,7 @@ const Commits = ({ commits, getCommits }) => {
   }, [getCommits])
   return (
     <div className='commits'>
-      {commits.map(commit => (<Commit {...commit} />))}
+      {commits.map(commit => (<Commit {...commit} key={commit.git_id} />))}
     </div>
   )
 }

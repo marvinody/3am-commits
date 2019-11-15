@@ -1,14 +1,36 @@
 .author img {
   max-width: 50px;
   max-height: 50px;
+  padding: 10px;
+  background-color: white;
 }
 
 .commit {
   display: flex;
   padding: 15px;
+  align-content: center;
+  justify-content: center;
+  background-color: #ddd;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
 }
 
 .author {
   display: flex;
+  flex-direction: row;
+}
+
+.message {
+  flex: 1 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.info {
+  display: flex;
   flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0 10px;
 }

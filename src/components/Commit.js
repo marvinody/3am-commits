@@ -9,8 +9,13 @@ export default function Commit(props) {
             <img src={props.author.avatar_url}></img>
           </a>
         </div>
-        <div className='link'>
-          <a href={props.author.profile_url}>{props.author.login}</a>
+        <div className='info'>
+          <div className='link'>
+            <a href={props.author.profile_url}>{props.author.login}</a>
+          </div>
+          <div className='commit-time'>
+            <span>{props.date_committed}</span>
+          </div>
         </div>
       </div>
       <div className='message'>
