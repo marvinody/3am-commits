@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
+import { getCommits } from '../store';
 import Commit from './Commit';
-import { getCommits } from './store';
 const Commits = ({ commits, getCommits }) => {
   useEffect(() => {
     getCommits()
