@@ -16,7 +16,7 @@ jobs:
       - name: Build
         run: npm run build
       - name: Install Firebase
-        run: npm -g install firebase-tools
+        run: npm install firebase-tools
       - name: Deploy to Firebase
         run: deploy --only hosting:prod
         env:
