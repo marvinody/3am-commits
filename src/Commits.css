@@ -1,0 +1,4 @@
+.commits {
+  display: flex;
+  flex-direction: column;
+}
