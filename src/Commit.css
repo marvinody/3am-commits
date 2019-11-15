@@ -1,0 +1,14 @@
+.author img {
+  max-width: 50px;
+  max-height: 50px;
+}
+
+.commit {
+  display: flex;
+  padding: 15px;
+}
+
+.author {
+  display: flex;
+  flex-direction: column;
+}
