@@ -3,6 +3,7 @@
   max-height: 50px;
   padding: 10px;
   background-color: white;
+  border-radius: 10px;
 }
 
 .commit {
@@ -13,11 +14,36 @@
   background-color: #ddd;
   margin-bottom: 10px;
   flex-wrap: wrap;
+  transition: background-color 0.25s ease-in;
+}
+
+.commit:hover {
+  background-color: #aaa;
 }
 
 .author {
   display: flex;
   flex-direction: row;
+}
+
+.link a:visited,
+.link a {
+  color: #222;
+}
+
+.message a {
+  font-family: 'Courier New', Courier, monospace;
+  transition: text-decoration 0.25 ease-in-out;
+}
+
+.message a:visited,
+.message a {
+  text-decoration: none;
+  color: #444
+}
+
+.message a:hover {
+  text-decoration: underline;
 }
 
 .message {

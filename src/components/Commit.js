@@ -1,6 +1,8 @@
+import { DateTime } from 'luxon'
 import React from 'react'
 import '../css/Commit.css'
 export default function Commit(props) {
+  const dt = DateTime.fromISO(props.date_committed)
   return (
     <div className='commit'>
       <div className='author'>
@@ -14,7 +16,7 @@ export default function Commit(props) {
             <a href={props.author.profile_url}>{props.author.login}</a>
           </div>
           <div className='commit-time'>
-            <span>{props.date_committed}</span>
+            <span title={dt.toLocaleString()}>{dt.toRelative()}</span>
           </div>
         </div>
       </div>
