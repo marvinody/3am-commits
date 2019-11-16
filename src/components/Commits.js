@@ -1,4 +1,6 @@
+import _ from 'lodash';
 import React, { useEffect } from 'react';
+import InfiniteScroll from 'react-infinite-scroller';
 import { connect } from 'react-redux';
 import '../css/Commits.css';
 import { getCommits } from '../store';
@@ -8,9 +10,18 @@ const Commits = ({ commits, getCommits }) => {
     getCommits()
   }, [getCommits])
   return (
-    <div className='commits'>
-      {commits.map(commit => (<Commit {...commit} key={commit.git_id} />))}
-    </div>
+    <InfiniteScroll
+      pageStart={0}
+      loadMore={getCommits}
+      hasMore={true}
+      loader={<div key='loading'>Loading</div>}
+      initialLoad={false}
+    >
+
+      <div className='commits'>
+        {commits.map(commit => (<Commit {...commit} key={commit.git_id} />))}
+      </div>
+    </InfiniteScroll>
   )
 }
 
@@ -19,7 +30,10 @@ const mapState = state => ({
 })
 
 const mapDispatch = dispatch => ({
-  getCommits: () => dispatch(getCommits()),
+  getCommits: _.debounce((page) => {
+    dispatch(getCommits())
+  }, 250)
 })
+
 
 export default connect(mapState, mapDispatch)(Commits)
