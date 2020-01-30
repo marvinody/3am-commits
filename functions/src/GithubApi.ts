@@ -2,7 +2,6 @@ import axios from "axios"
 import {
   GitHubSearch,
   GitHubApi,
-  GitHubCommit,
   GitHubCommitter,
   GitHubSearchEntry,
   Author,
