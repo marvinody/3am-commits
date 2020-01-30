@@ -1,11 +1,10 @@
-import GithubApi from './GithubApi'
-import firebase from './sudo-firebase'
-(async function () {
-  const gh = GithubApi('')
-  const commits = await gh.searchAllCommits('fuck')
-  const collection = firebase.firestore().collection('commits');
+import firebase from "./sudo-firebase"
+import GitHub from "./sudo-github"
+;(async function() {
+  const commits = await GitHub.searchAllCommits("fuck")
+  const collection = firebase.firestore().collection("commits")
 
   commits.forEach(commit => {
-    collection.add(commit);
+    collection.add(commit)
   })
 })()
