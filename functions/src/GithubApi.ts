@@ -1,54 +1,14 @@
 import axios from "axios"
-interface Commit {
-  api_url: string
-  html_url: string
-  git_id: string
-  message: any
-  author: Author
-  date_committed: string
-}
-interface Author {
-  login: string
-  avatar_url: string
-  profile_url: string
-}
-
-interface GitHubSearch {
-  items: GitHubSearchEntry[]
-}
-
-interface GitHubSearchEntry {
-  url: string
-  html_url: string
-  node_id: string
-  committer: null | GitHubCommitter
-  commit: GitHubCommit
-}
-
-interface GitHubCommit {
-  message: string
-  committer: {
-    name: string
-    date: string
-    email: string
-  }
-}
-
-interface GitHubCommitter {
-  login: string
-  avatar_url: string
-  html_url: string
-}
-
-interface GitHubApi {
-  searchCommits: (query: string) => Promise<Commit[]>
-  searchAllCommits: (query: string) => Promise<Commit[]>
-}
-
-type GitHubCredentials = {
-  client_id: string
-  client_secret: string
-}
+import {
+  GitHubSearch,
+  GitHubApi,
+  GitHubCommit,
+  GitHubCommitter,
+  GitHubSearchEntry,
+  Author,
+  Commit,
+  GitHubCredentials,
+} from "./GitHubTypes"
 
 const commitReducer = (commitData: GitHubSearchEntry): Commit => ({
   api_url: commitData.url,
