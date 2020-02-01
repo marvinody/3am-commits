@@ -4,9 +4,14 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  height: 100vh;
 }
 
-.header {
+.title {
   color: white;
   text-align: center;
+}
+
+.container {
+  flex: 1;
 }
