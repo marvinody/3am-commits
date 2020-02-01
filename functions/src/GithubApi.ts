@@ -8,6 +8,7 @@ import {
   Commit,
   GitHubCredentials,
 } from "./GitHubTypes"
+export * from "./GitHubTypes"
 
 const commitReducer = (commitData: GitHubSearchEntry): Commit => ({
   api_url: commitData.url,
@@ -41,7 +42,7 @@ const transformData = (data: GitHubSearch) =>
 export default (credentials: GitHubCredentials): GitHubApi => {
   const ax = axios.create({
     baseURL: "https://api.github.com/",
-    timeout: 5000,
+    timeout: 8000,
   })
 
   return {
@@ -74,6 +75,8 @@ export default (credentials: GitHubCredentials): GitHubApi => {
           q: query,
           sort: "committer-date",
           per_page: "100",
+          client_id: credentials.client_id,
+          client_secret: credentials.client_secret,
         },
         headers: {
           Accept: "application/vnd.github.cloak-preview",
@@ -85,14 +88,17 @@ export default (credentials: GitHubCredentials): GitHubApi => {
         commits = commits.concat(...transformData(data))
         while (headers.link) {
           const url = parseNextPage(headers)
+          console.log("next page", { url })
           const stuff = await ax.get(url, config)
           data = stuff.data
           headers = stuff.headers
-          commits = commits.concat(...data)
+
+          commits = commits.concat(...transformData(data))
         }
       } catch (err) {
         console.error(err)
       } finally {
+        console.log("COMMITS IN FN:", commits)
         return Promise.resolve(commits)
       }
     },
