@@ -9,3 +9,4 @@ node_modules/
 
 # block admin creds
 admin-firebase-creds.json
+github-credentials.json
