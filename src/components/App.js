@@ -1,24 +1,22 @@
-import React from 'react';
 import '../css/App.css';
-import Commits from './Commits/';
+
+import React from 'react';
+import { Link, Route, Switch } from 'react-router-dom';
+
 import Charts from './Charts/';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
+import Commits from './Commits/';
+
 function App() {
   return (
     <div className="App">
       <header>
         <div className='title'>
           <h1>3am Commits</h1>
-          <h3><a href='https://github.com/marvinody/3am-commits'>source</a></h3>
+          <h3 className='link'><a href='https://github.com/marvinody/3am-commits'>source</a></h3>
         </div>
         <nav>
-          <div><Link to='/'>Commits</Link></div>
-          <div><Link to='/charts'>Charts</Link></div>
+          <div className='link' ><Link to='/'>Commits</Link></div>
+          <div className='link' > <Link to='/charts'>Charts</Link></div>
         </nav>
       </header>
       <div class='container'>

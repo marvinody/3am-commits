@@ -13,8 +13,14 @@
   justify-content: center;
   background-color: #ddd;
   margin-bottom: 10px;
-  flex-wrap: wrap;
   transition: background-color 0.25s ease-in;
+}
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+  .commit {
+    flex-direction: column;
+
+  }
 }
 
 .commit:hover {

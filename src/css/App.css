@@ -5,6 +5,8 @@
   align-items: center;
   flex-direction: column;
   min-height: 100vh;
+  overflow-y: hidden;
+  overflow-x: hidden;
 }
 
 .title {
@@ -14,4 +16,27 @@
 
 .container {
   flex: 1;
+}
+
+header {
+  min-width: 50%;
+}
+
+nav {
+  display: flex;
+  justify-content: space-around;
+
+}
+
+header .link {
+  background-color: #ddd;
+  margin: 1rem;
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
+header h3 {
+  font-weight: normal;
+  display: inline-block;
+
 }

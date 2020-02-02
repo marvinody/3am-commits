@@ -20,6 +20,7 @@ const Commits = ({ commits, getCommits }) => {
       hasMore={true}
       loader={<Loading />}
       initialLoad={false}
+      className='infinite-scroll'
     >
 
       <div className='commits'>
