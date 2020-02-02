@@ -1,10 +1,14 @@
+import './Commits.css';
+
 import _ from 'lodash';
 import React, { useEffect } from 'react';
 import InfiniteScroll from 'react-infinite-scroller';
 import { connect } from 'react-redux';
-import './Commits.css';
+
 import { getCommits } from '../../store';
 import Commit from './Commit';
+import Loading from '../Loading'
+
 const Commits = ({ commits, getCommits }) => {
   useEffect(() => {
     getCommits()
@@ -14,7 +18,7 @@ const Commits = ({ commits, getCommits }) => {
       pageStart={0}
       loadMore={getCommits}
       hasMore={true}
-      loader={<div key='loading'>Loading</div>}
+      loader={<Loading />}
       initialLoad={false}
     >
 

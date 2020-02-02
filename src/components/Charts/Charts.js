@@ -4,7 +4,7 @@ import { getAnalytics } from '../../store';
 import './Charts.css'
 import Hours from './Hours'
 import Days from './Days'
-
+import Loading from '../Loading'
 
 
 const Charts = ({ getAnalytics, analytics }) => {
@@ -13,9 +13,7 @@ const Charts = ({ getAnalytics, analytics }) => {
   }, [getAnalytics])
   console.log({ analytics })
   if (analytics.length === 0) {
-    return (<div>
-      Loading...
-    </div>)
+    return <Loading></Loading>
   }
   return (
     <div className='analytics'>
