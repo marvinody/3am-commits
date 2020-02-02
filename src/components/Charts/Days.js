@@ -1,6 +1,6 @@
 import React from 'react'
 import { Bar } from 'react-chartjs-2'
-import colors from './colors'
+import { colors, fontSizes } from './config'
 import { capitalize } from './utils'
 
 const engDays = () => {
@@ -24,12 +24,27 @@ const BarWrapper = ({ analytics }) => {
           }))
         }}
         options={{
+          title: {
+            display: true,
+            text: "Curses Per Day",
+            fontSize: fontSizes.title,
+          },
           scales: {
             xAxes: [{
-              stacked: true
+              stacked: true,
+              scaleLabel: {
+                display: true,
+                labelString: 'Weekday',
+                fontSize: fontSizes.xAxes,
+              }
             }],
             yAxes: [{
-              stacked: true
+              stacked: true,
+              scaleLabel: {
+                display: true,
+                labelString: 'Count',
+                fontSize: fontSizes.yAxes,
+              }
             }]
           }
         }}>

@@ -1,4 +1,4 @@
-export default {
+export const colors = {
   fuck: {
     color: 'rgba(255, 0, 0, 1)',
     bg: 'rgba(255, 0, 0, 0.5)'
@@ -7,6 +7,12 @@ export default {
     color: 'rgba(89, 48, 1, 1)',
     bg: 'rgba(89, 48, 1, 0.5)'
   }
+}
+
+export const fontSizes = {
+  title: 48,
+  yAxes: 24,
+  xAxes: 24,
 }
 
 

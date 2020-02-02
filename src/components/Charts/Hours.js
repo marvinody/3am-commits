@@ -1,6 +1,6 @@
 import React from 'react'
 import { Line } from 'react-chartjs-2'
-import colors from './colors'
+import { colors, fontSizes } from './config'
 import { capitalize } from './utils'
 
 const engHours = () => {
@@ -30,14 +30,26 @@ const LineWrapper = ({ analytics }) => {
           }))
         }}
         options={{
+          title: {
+            display: true,
+            text: 'Curses Per Hour',
+            fontSize: fontSizes.title,
+          },
           scales: {
             yAxes: [{
-              scaleLabel: 'Count',
-              display: true,
+              scaleLabel: {
+                display: true,
+                labelString: 'Count',
+                fontSize: fontSizes.yAxes,
+              },
             }],
             xAxes: [{
               display: true,
-              scaleLabel: 'Time'
+              scaleLabel: {
+                display: true,
+                labelString: 'Time',
+                fontSize: fontSizes.xAxes,
+              }
             }]
           }
         }}>
