@@ -24,7 +24,7 @@ const LineWrapper = ({ analytics }) => {
           label: capitalize(data.curse),
           data: data.cursesOnHour,
           fill: false,
-          borderColor: colors[data.curse].borderColor,
+          borderColor: colors[data.curse].color,
           borderWidth: 1,
         }))
       }}

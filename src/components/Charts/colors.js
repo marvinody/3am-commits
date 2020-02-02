@@ -1,7 +1,7 @@
 export default {
   fuck: {
-    borderColor: 'rgba(255, 99, 132, 1)'
-
+    color: 'rgba(255, 99, 132, 1)',
+    bg: 'rgba(255, 99, 132, 0.5)'
   }
 }
 
