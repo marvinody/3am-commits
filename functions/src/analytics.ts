@@ -12,22 +12,23 @@ type analytics = {
   data: analytic[]
 }
 
-export const computeAnalytics = (commits: Commit[]): analytics => {
-  const timeBuckets = bucket(commits, commit =>
-    Number(getHour(commit.date_committed))
-  )
-  const dayBuckets = bucket(commits, commit =>
-    new Date(commit.date_committed).getDay()
-  )
-
+export const computeAnalytics = (
+  curses: { curse: string; commits: Commit[] }[]
+): analytics => {
   return {
     date: Date.now(),
-    data: [
-      {
-        curse: "fuck",
+    data: curses.map(curse => {
+      const timeBuckets = bucket(curse.commits, commit =>
+        Number(getHour(commit.date_committed))
+      )
+      const dayBuckets = bucket(curse.commits, commit =>
+        new Date(commit.date_committed).getDay()
+      )
+      return {
+        curse: curse.curse,
         cursesOnHour: timeBuckets.map(b => b.length),
         cursesOnDay: dayBuckets.map(b => b.length),
-      },
-    ],
+      }
+    }),
   }
 }

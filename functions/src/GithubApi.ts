@@ -42,7 +42,7 @@ const transformData = (data: GitHubSearch) =>
 export default (credentials: GitHubCredentials): GitHubApi => {
   const ax = axios.create({
     baseURL: "https://api.github.com/",
-    timeout: 8000,
+    timeout: 15000,
   })
 
   return {
@@ -54,11 +54,10 @@ export default (credentials: GitHubCredentials): GitHubApi => {
             q: query,
             sort: "committer-date",
             per_page: "100",
-            client_id: credentials.client_id,
-            client_secret: credentials.client_secret,
           },
           headers: {
             Accept: "application/vnd.github.cloak-preview",
+            Authorization: `token ${credentials.token}`,
           },
         })
         return transformData(data)
@@ -75,17 +74,17 @@ export default (credentials: GitHubCredentials): GitHubApi => {
           q: query,
           sort: "committer-date",
           per_page: "100",
-          client_id: credentials.client_id,
-          client_secret: credentials.client_secret,
         },
         headers: {
           Accept: "application/vnd.github.cloak-preview",
+          Authorization: `token ${credentials.token}`,
         },
       }
 
       try {
         let { data, headers } = await ax.get(`search/commits`, config)
         commits = commits.concat(...transformData(data))
+        console.log({ headers })
         while (headers.link) {
           const url = parseNextPage(headers)
           console.log("next page", { url })
@@ -98,7 +97,6 @@ export default (credentials: GitHubCredentials): GitHubApi => {
       } catch (err) {
         console.error(err)
       } finally {
-        console.log("COMMITS IN FN:", commits)
         return Promise.resolve(commits)
       }
     },

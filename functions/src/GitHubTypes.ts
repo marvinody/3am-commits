@@ -45,6 +45,5 @@ export interface GitHubApi {
 }
 
 export type GitHubCredentials = {
-  client_id: string
-  client_secret: string
+  token: string
 }
