@@ -4,3 +4,10 @@
   background-color: #eee;
   border-radius: 0.25rem;
 }
+
+.chart {
+  margin: 6rem 0;
+}
+.chart:first-child {
+  margin-top: 2rem;
+}

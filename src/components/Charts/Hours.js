@@ -17,31 +17,32 @@ const engHours = () => {
 const LineWrapper = ({ analytics }) => {
   const hours = engHours()
   return (
-    <Line
-      data={{
-        labels: hours,
-        datasets: analytics[0].data.map(data => ({
-          label: capitalize(data.curse),
-          data: data.cursesOnHour,
-          fill: false,
-          borderColor: colors[data.curse].color,
-          borderWidth: 1,
-        }))
-      }}
-      options={{
-        scales: {
-          yAxes: [{
-            scaleLabel: 'Count',
-            display: true,
-          }],
-          xAxes: [{
-            display: true,
-            scaleLabel: 'Time'
-          }]
-        }
-      }}>
-
-    </Line>
+    <div className='chart'>
+      <Line
+        data={{
+          labels: hours,
+          datasets: analytics[0].data.map(data => ({
+            label: capitalize(data.curse),
+            data: data.cursesOnHour,
+            fill: false,
+            borderColor: colors[data.curse].color,
+            borderWidth: 1,
+          }))
+        }}
+        options={{
+          scales: {
+            yAxes: [{
+              scaleLabel: 'Count',
+              display: true,
+            }],
+            xAxes: [{
+              display: true,
+              scaleLabel: 'Time'
+            }]
+          }
+        }}>
+      </Line>
+    </div>
   )
 }
 

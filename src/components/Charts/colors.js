@@ -1,7 +1,11 @@
 export default {
   fuck: {
-    color: 'rgba(255, 99, 132, 1)',
-    bg: 'rgba(255, 99, 132, 0.5)'
+    color: 'rgba(255, 0, 0, 1)',
+    bg: 'rgba(255, 0, 0, 0.5)'
+  },
+  shit: {
+    color: 'rgba(89, 48, 1, 1)',
+    bg: 'rgba(89, 48, 1, 0.5)'
   }
 }
 
