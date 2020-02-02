@@ -1,5 +1,8 @@
-export const fuck = {
-  borderColor: 'rgba(255, 99, 132, 1)'
+export default {
+  fuck: {
+    borderColor: 'rgba(255, 99, 132, 1)'
+
+  }
 }
 
 
