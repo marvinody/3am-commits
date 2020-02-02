@@ -2,8 +2,8 @@ import _ from 'lodash';
 import React, { useEffect } from 'react';
 import InfiniteScroll from 'react-infinite-scroller';
 import { connect } from 'react-redux';
-import '../css/Commits.css';
-import { getCommits } from '../store';
+import './Commits.css';
+import { getCommits } from '../../store';
 import Commit from './Commit';
 const Commits = ({ commits, getCommits }) => {
   useEffect(() => {

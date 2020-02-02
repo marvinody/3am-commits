@@ -1,6 +1,6 @@
 import { DateTime } from 'luxon'
 import React from 'react'
-import '../css/Commit.css'
+import './Commit.css'
 export default function Commit(props) {
   const dt = DateTime.fromISO(props.date_committed)
   return (

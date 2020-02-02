@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { Line } from 'react-chartjs-2'
 import { connect } from 'react-redux';
-import { getAnalytics } from '../store';
-import '../css/Charts.css'
+import { getAnalytics } from '../../store';
+import './Charts.css'
 
 const engHours = () => {
   return Array(24).fill(0)

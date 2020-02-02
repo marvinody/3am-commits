@@ -1,13 +1,13 @@
 import React from 'react';
 import '../css/App.css';
-import Commits from './Commits';
+import Commits from './Commits/';
+import Charts from './Charts/';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Link
 } from "react-router-dom";
-import Charts from './Charts';
 function App() {
   return (
     <div className="App">
