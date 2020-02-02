@@ -23,4 +23,4 @@ import { computeAnalytics } from "./analytics"
     },
   ])
   await analyticsColl.doc(String(analytics.date)).set(analytics)
-})()
+})().catch(console.error)

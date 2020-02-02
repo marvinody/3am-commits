@@ -5,13 +5,13 @@ export const bucket = <T>(arr: T[], fn: (element: T) => number): T[][] => {
       .map(() => [])
 
   let buckets: T[][] = []
-  for (let i = 0; i < arr.length; i++) {
-    const curBucket = fn(arr[i])
+  for (const element of arr) {
+    const curBucket = fn(element)
     if (curBucket > buckets.length - 1) {
       const newBuckets = makeArr(curBucket - buckets.length + 1)
       buckets = buckets.concat(newBuckets)
     }
-    buckets[curBucket] = buckets[curBucket].concat(arr[i])
+    buckets[curBucket] = buckets[curBucket].concat(element)
   }
 
   return buckets
@@ -22,5 +22,5 @@ export const getHour = (s: string): string => {
   if (match) {
     return match[1]
   }
-  throw "INVALID TIME"
+  throw new Error("INVALID TIME")
 }

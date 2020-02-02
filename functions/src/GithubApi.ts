@@ -96,9 +96,8 @@ export default (credentials: GitHubCredentials): GitHubApi => {
         }
       } catch (err) {
         console.error(err)
-      } finally {
-        return Promise.resolve(commits)
       }
+      return Promise.resolve(commits)
     },
   }
 }
