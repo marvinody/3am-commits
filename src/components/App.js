@@ -11,7 +11,7 @@ function App() {
     <div className="App">
       <header>
         <div className='title'>
-          <h1>3am Commits</h1>
+          <h1>3am* Commits</h1>
           <h3 className='link'><a href='https://github.com/marvinody/3am-commits'>source</a></h3>
         </div>
         <nav>
